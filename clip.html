@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BlockFlix - Trending Clip</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        .clip-page {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px 15px 60px;
+            text-align: center;
+        }
+
+        .clip-title {
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+
+        .clip-creator {
+            color: #999;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        /* VIDEO */
+
+        .clip-player {
+            width: 100%;
+            max-width: 650px;
+            margin: auto;
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .clip-player iframe {
+            width: 100%;
+            height: 720px;
+            display: block;
+            border: 0;
+        }
+
+        /* BUTTONS */
+
+        .clip-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .clip-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px 20px;
+
+            min-width: 170px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: #e50914;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .clip-button:hover {
+            background: #b20710;
+        }
+
+        .clip-button.secondary {
+            background: #292929;
+        }
+
+        .clip-button.secondary:hover {
+            background: #3b3b3b;
+        }
+
+        .clip-message {
+            color: #999;
+            margin-top: 18px;
+            line-height: 1.5;
+        }
+
+
+        /* FULLSCREEN */
+
+        .clip-player:fullscreen {
+            width: 100vw;
+            height: 100vh;
+            border-radius: 0;
+        }
+
+        .clip-player:fullscreen iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .clip-page {
+                padding: 25px 10px 50px;
+            }
+
+            .clip-title {
+                font-size: 30px;
+            }
+
+            .clip-creator {
+                font-size: 16px;
+            }
+
+            .clip-player {
+                border-radius: 12px;
+            }
+
+            .clip-player iframe {
+                height: 650px;
+            }
+
+            .clip-buttons {
+                flex-direction: column;
+            }
+
+            .clip-button {
+                width: 90%;
+            }
+
+        }
+
+
+        /* LANDSCAPE PHONE */
+
+        @media (
+            orientation: landscape
+        ) and (max-height: 600px) {
+
+            .clip-page {
+                padding: 10px;
+            }
+
+            .clip-title,
+            .clip-creator,
+            .clip-buttons,
+            .clip-message {
+                display: none;
+            }
+
+            .clip-player {
+                max-width: none;
+                width: 100%;
+                height: 90vh;
+            }
+
+            .clip-player iframe {
+                width: 100%;
+                height: 90vh;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <h1>
+        🎬 BlockFlix
+    </h1>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="index.html#trending">
+            Trending
+        </a>
+
+        <a href="index.html#movies">
+            Movies
+        </a>
+
+        <a href="watchlist.html">
+            ❤️ Watchlist
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================
+     CLIP PAGE
+========================================= -->
+
+<main>
+
+    <section class="clip-page">
+
+        <h1
+            id="clipTitle"
+            class="clip-title"
+        >
+            Loading Clip...
+        </h1>
+
+
+        <p
+            id="clipCreator"
+            class="clip-creator"
+        >
+            🎬 Loading...
+        </p>
+
+
+
+        <!-- =================================
+             ONE PLAYER ONLY
+        ================================== -->
+
+        <div
+            id="clipPlayer"
+            class="clip-player"
+        >
+
+            <iframe
+                id="tiktokPlayer"
+                src=""
+                title="BlockFlix Trending Clip"
+                allow="
+                    autoplay;
+                    fullscreen;
+                    picture-in-picture
+                "
+                allowfullscreen
+                scrolling="no"
+            ></iframe>
+
+        </div>
+
+
+
+        <!-- =================================
+             CONTROLS
+        ================================== -->
+
+        <div class="clip-buttons">
+
+            <button
+                id="fullscreenButton"
+                class="clip-button"
+                type="button"
+            >
+                ⛶ Fullscreen
+            </button>
+
+
+            <button
+                id="landscapeButton"
+                class="clip-button"
+                type="button"
+            >
+                🔄 Landscape
+            </button>
+
+
+            <a
+                id="tiktokButton"
+                class="clip-button secondary"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🎵 Open on TikTok
+            </a>
+
+
+            <a
+                href="index.html#trending"
+                class="clip-button secondary"
+            >
+                ← Back to Trending
+            </a>
+
+        </div>
+
+
+        <p
+            id="clipMessage"
+            class="clip-message"
+        >
+            Use the video controls to play the clip.
+        </p>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <p>
+        © 2026 BlockFlix
+    </p>
+
+    <p>
+        Learning project
+    </p>
+
+</footer>
+
+
+
+<!-- =========================================
+     CLIP JAVASCRIPT
+========================================= -->
+
+<script>
+
+    /* =====================================
+       CLIP DATABASE
+    ====================================== */
+
+    const clips = {
+
+        "7656446987218291999": {
+            title: "Trending Edit",
+            creator: "@flux.amvs"
+        },
+
+        "7653207770488950037": {
+            title: "Movie Edit",
+            creator: "@blackoedits"
+        },
+
+        "7674280271902018824": {
+            title: "Trending Clip",
+            creator: "@yuipaws"
+        },
+
+        "7661126710695349526": {
+            title: "Movie Clip",
+            creator: "@justcine_now"
+        }
+
+    };
+
+
+    /* =====================================
+       GET CLIP
+    ====================================== */
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const clipId =
+        params.get("id");
+
+    const clip =
+        clips[clipId];
+
+
+    const title =
+        document.getElementById(
+            "clipTitle"
+        );
+
+    const creator =
+        document.getElementById(
+            "clipCreator"
+        );
+
+    const player =
+        document.getElementById(
+            "tiktokPlayer"
+        );
+
+    const playerContainer =
+        document.getElementById(
+            "clipPlayer"
+        );
+
+    const tiktokButton =
+        document.getElementById(
+            "tiktokButton"
+        );
+
+    const message =
+        document.getElementById(
+            "clipMessage"
+        );
+
+
+
+    /* =====================================
+       LOAD CLIP
+    ====================================== */
+
+    if (!clip) {
+
+        title.textContent =
+            "Clip Not Found";
+
+        creator.textContent =
+            "This clip does not exist.";
+
+        playerContainer.style.display =
+            "none";
+
+        tiktokButton.style.display =
+            "none";
+
+    } else {
+
+        title.textContent =
+            clip.title;
+
+        creator.textContent =
+            "🎬 " +
+            clip.creator;
+
+
+        player.src =
+            "https://www.tiktok.com/player/v1/" +
+            clipId +
+            "?music_info=1&description=1&rel=0";
+
+
+        /*
+         * Open the actual TikTok video.
+         */
+
+        tiktokButton.href =
+            "https://www.tiktok.com/@" +
+            clip.creator.replace("@", "") +
+            "/video/" +
+            clipId;
+
+    }
+
+
+
+    /* =====================================
+       FULLSCREEN
+    ====================================== */
+
+    const fullscreenButton =
+        document.getElementById(
+            "fullscreenButton"
+        );
+
+
+    fullscreenButton.addEventListener(
+        "click",
+        async function() {
+
+            try {
+
+                if (
+                    document.fullscreenElement
+                ) {
+
+                    await document.exitFullscreen();
+
+                    return;
+                }
+
+
+                if (
+                    playerContainer.requestFullscreen
+                ) {
+
+                    await playerContainer.requestFullscreen();
+
+                } else {
+
+                    message.textContent =
+                        "Your browser does not support this fullscreen button. Use the fullscreen control inside the video.";
+
+                }
+
+            } catch (error) {
+
+                message.textContent =
+                    "Fullscreen could not be started. Try the fullscreen button inside the video.";
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================
+       LANDSCAPE
+    ====================================== */
+
+    const landscapeButton =
+        document.getElementById(
+            "landscapeButton"
+        );
+
+
+    landscapeButton.addEventListener(
+        "click",
+        async function() {
+
+            try {
+
+                /*
+                 * Fullscreen first.
+                 */
+
+                if (
+                    !document.fullscreenElement
+                ) {
+
+                    if (
+                        playerContainer.requestFullscreen
+                    ) {
+
+                        await playerContainer.requestFullscreen();
+
+                    }
+
+                }
+
+
+                /*
+                 * Ask Android to rotate
+                 * if the browser allows it.
+                 */
+
+                if (
+                    screen.orientation &&
+                    screen.orientation.lock
+                ) {
+
+                    await screen.orientation.lock(
+                        "landscape"
+                    );
+
+                    message.textContent =
+                        "Landscape mode activated.";
+
+                } else {
+
+                    message.textContent =
+                        "Please turn your phone sideways.";
+
+                }
+
+            } catch (error) {
+
+                /*
+                 * Some Android browsers do not
+                 * allow websites to force rotation.
+                 * The video can still be viewed
+                 * by physically rotating the phone.
+                 */
+
+                message.textContent =
+                    "Please turn your phone sideways. Your browser does not allow websites to force landscape mode.";
+
+            }
+
+        }
+    );
+
+
+    /* =====================================
+       EXIT FULLSCREEN
+    ====================================== */
+
+    document.addEventListener(
+        "fullscreenchange",
+        function() {
+
+            if (
+                !document.fullscreenElement
+            ) {
+
+                try {
+
+                    if (
+                        screen.orientation &&
+                        screen.orientation.unlock
+                    ) {
+
+                        screen.orientation.unlock();
+
+                    }
+
+                } catch (error) {
+
+                    /* Ignore orientation errors */
+
+                }
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BlockFlix - Movie</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <h1>
+        🎬 BlockFlix
+    </h1>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="index.html#movies">
+            Movies
+        </a>
+
+        <a href="index.html#categories">
+            Categories
+        </a>
+
+        <a href="watchlist.html">
+            ❤️ Watchlist
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================
+     MOVIE CONTENT
+========================================= -->
+
+<main>
+
+    <div class="movie-container">
+
+
+        <!-- =================================
+             VIDEO PLAYER
+        ================================== -->
+
+        <div class="video-container">
+
+            <video
+                id="movieVideo"
+                controls
+                playsinline
+                preload="metadata"
+                poster=""
+            >
+
+                Your browser does not support
+                the video player.
+
+            </video>
+
+        </div>
+
+
+
+        <!-- =================================
+             MOVIE TITLE
+        ================================== -->
+
+        <h1 id="movieTitle">
+            Loading movie...
+        </h1>
+
+
+
+        <!-- =================================
+             MOVIE INFORMATION
+        ================================== -->
+
+        <p
+            id="movieInfo"
+            class="movie-info"
+        >
+            Loading information...
+        </p>
+
+
+
+        <!-- =================================
+             MOVIE DESCRIPTION
+        ================================== -->
+
+        <p
+            id="movieDescription"
+            class="movie-description"
+        >
+            Loading description...
+        </p>
+
+
+
+        <!-- =================================
+             ACTION BUTTONS
+        ================================== -->
+
+        <div class="movie-actions">
+
+            <button
+                id="watchlistButton"
+                type="button"
+            >
+                ❤️ Add to Watchlist
+            </button>
+
+
+            <a
+                id="downloadButton"
+                class="movie-button download-button"
+                href="#"
+                download
+            >
+                ⬇️ Download
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================
+             MOVIE POSTER
+        ================================== -->
+
+        <img
+            id="moviePoster"
+            src=""
+            alt="Movie poster"
+            loading="lazy"
+        >
+
+
+
+        <!-- =================================
+             BACK BUTTON
+        ================================== -->
+
+        <div class="movie-actions">
+
+            <a
+                href="index.html#movies"
+                class="movie-button back-button"
+            >
+                ← Back to Movies
+            </a>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <p>
+        © 2026 BlockFlix
+    </p>
+
+    <p>
+        Learning project
+    </p>
+
+</footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
