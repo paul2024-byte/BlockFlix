@@ -16,12 +16,17 @@ const movies = [
         genre: "Adventure",
         year: "2026",
         rating: "8.5",
-        poster: "https://images.unsplash.com/photo-1500534623283-312aade485b7",
+
+        poster:
+            "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=85",
+
         description:
             "A mysterious night adventure full of exploration and unexpected discoveries.",
+
         video:
             "https://media.w3.org/2010/05/sintel/trailer.mp4"
     },
+
 
     {
         id: "galaxy-run",
@@ -29,12 +34,17 @@ const movies = [
         genre: "Sci-Fi",
         year: "2026",
         rating: "8.2",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1",
+
+        poster:
+            "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=900&q=85",
+
         description:
             "A futuristic adventure through distant galaxies and unknown worlds.",
+
         video:
             "https://media.w3.org/2010/05/bunny/trailer.mp4"
     },
+
 
     {
         id: "lost-island",
@@ -42,12 +52,17 @@ const movies = [
         genre: "Adventure",
         year: "2026",
         rating: "8.0",
-        poster: "https://images.unsplash.com/photo-1500534623283-312aade485b7",
+
+        poster:
+            "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85",
+
         description:
             "A group of explorers discover a mysterious island hiding an incredible secret.",
+
         video:
             "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
     },
+
 
     {
         id: "final-fighter",
@@ -55,12 +70,17 @@ const movies = [
         genre: "Action",
         year: "2026",
         rating: "8.4",
-        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728",
+
+        poster:
+            "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=85",
+
         description:
             "One fighter enters the biggest battle of his life.",
+
         video:
             "https://media.w3.org/2010/05/bunny/movie.mp4"
     },
+
 
     {
         id: "the-journey",
@@ -68,12 +88,17 @@ const movies = [
         genre: "Drama",
         year: "2026",
         rating: "8.1",
-        poster: "https://images.unsplash.com/photo-1500534623283-312aade485b7",
+
+        poster:
+            "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?auto=format&fit=crop&w=900&q=85",
+
         description:
             "A powerful journey about family, courage and discovering yourself.",
+
         video:
             "https://media.w3.org/2010/05/sintel/trailer.mp4"
     },
+
 
     {
         id: "dark-city",
@@ -81,12 +106,17 @@ const movies = [
         genre: "Action",
         year: "2026",
         rating: "7.9",
-        poster: "https://images.unsplash.com/photo-1519608487953-e999c86e7455",
+
+        poster:
+            "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=85",
+
         description:
             "A dangerous city becomes the battleground for an unexpected hero.",
+
         video:
             "https://media.w3.org/2010/05/bunny/trailer.mp4"
     },
+
 
     {
         id: "ocean-mystery",
@@ -94,10 +124,13 @@ const movies = [
         genre: "Mystery",
         year: "2026",
         rating: "8.3",
+
         poster:
-            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85",
+
         description:
             "A mysterious discovery beneath the ocean leads to an unforgettable adventure.",
+
         video:
             "https://vjs.zencdn.net/v/oceans.mp4"
     }
@@ -106,14 +139,28 @@ const movies = [
 
 
 /* =========================================
+   FEATURED MOVIE
+========================================= */
+
+const featuredMovie =
+    movies.find(function(movie) {
+
+        return movie.id === "galaxy-run";
+
+    });
+
+
+/* =========================================
    POPULAR MOVIES
 ========================================= */
 
 const popularMovies = [
+
     movies[1],
     movies[0],
     movies[3],
     movies[5]
+
 ];
 
 
@@ -122,10 +169,12 @@ const popularMovies = [
 ========================================= */
 
 const newReleases = [
+
     movies[6],
     movies[0],
     movies[1],
     movies[2]
+
 ];
 
 
@@ -181,11 +230,12 @@ function isInWatchlist(movieId) {
 
 function toggleWatchlist(movieId) {
 
-    const movie = movies.find(function(item) {
+    const movie =
+        movies.find(function(item) {
 
-        return item.id === movieId;
+            return item.id === movieId;
 
-    });
+        });
 
 
     if (!movie) {
@@ -193,23 +243,26 @@ function toggleWatchlist(movieId) {
     }
 
 
-    let list = getWatchlist();
+    let list =
+        getWatchlist();
 
 
-    const exists = list.some(function(item) {
+    const exists =
+        list.some(function(item) {
 
-        return item.id === movieId;
+            return item.id === movieId;
 
-    });
+        });
 
 
     if (exists) {
 
-        list = list.filter(function(item) {
+        list =
+            list.filter(function(item) {
 
-            return item.id !== movieId;
+                return item.id !== movieId;
 
-        });
+            });
 
     } else {
 
@@ -235,14 +288,16 @@ function toggleWatchlist(movieId) {
 
 function removeFromWatchlist(movieId) {
 
-    let list = getWatchlist();
+    let list =
+        getWatchlist();
 
 
-    list = list.filter(function(movie) {
+    list =
+        list.filter(function(movie) {
 
-        return movie.id !== movieId;
+            return movie.id !== movieId;
 
-    });
+        });
 
 
     saveWatchlist(list);
@@ -381,11 +436,12 @@ function addToContinueWatching(movieId) {
         getContinueWatching();
 
 
-    list = list.filter(function(item) {
+    list =
+        list.filter(function(item) {
 
-        return item.id !== movieId;
+            return item.id !== movieId;
 
-    });
+        });
 
 
     list.unshift(movie);
@@ -437,6 +493,7 @@ function createMovieCard(
             <img
                 src="${movie.poster}"
                 alt="${movie.title}"
+                loading="lazy"
             >
 
             <div class="movie-card-content">
@@ -582,7 +639,8 @@ function displayMovies(list) {
     }
 
 
-    grid.innerHTML = "";
+    grid.innerHTML =
+        "";
 
 
     if (!list || list.length === 0) {
@@ -643,7 +701,8 @@ function displayPopularMovies() {
     }
 
 
-    grid.innerHTML = "";
+    grid.innerHTML =
+        "";
 
 
     popularMovies.forEach(function(movie) {
@@ -677,7 +736,8 @@ function displayNewReleases() {
     }
 
 
-    grid.innerHTML = "";
+    grid.innerHTML =
+        "";
 
 
     newReleases.forEach(function(movie) {
@@ -735,7 +795,8 @@ function displayContinueWatching() {
         "block";
 
 
-    grid.innerHTML = "";
+    grid.innerHTML =
+        "";
 
 
     list.forEach(function(movie) {
@@ -847,7 +908,8 @@ function filterMovies(category) {
 
     if (searchInput) {
 
-        searchInput.value = "";
+        searchInput.value =
+            "";
 
     }
 
@@ -987,6 +1049,120 @@ function setupSearch() {
 
 
 /* =========================================
+   FEATURED MOVIE
+========================================= */
+
+function setupFeaturedMovie() {
+
+    const section =
+        document.querySelector(
+            ".featured-movie"
+        );
+
+
+    if (!section || !featuredMovie) {
+        return;
+    }
+
+
+    /*
+     * Use the selected movie poster
+     * as the Featured Movie background.
+     */
+
+    section.style.backgroundImage = `
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.96) 0%,
+            rgba(0,0,0,0.78) 38%,
+            rgba(0,0,0,0.35) 72%,
+            rgba(0,0,0,0.72) 100%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.1),
+            rgba(0,0,0,0.7)
+        ),
+
+        url("${featuredMovie.poster}")
+
+    `;
+
+
+    section.style.backgroundSize =
+        "cover";
+
+
+    section.style.backgroundPosition =
+        "center";
+
+
+    section.style.backgroundRepeat =
+        "no-repeat";
+
+
+    /*
+     * Update title.
+     */
+
+    const title =
+        section.querySelector(
+            "h2"
+        );
+
+
+    if (title) {
+
+        title.textContent =
+            featuredMovie.title;
+
+    }
+
+
+    /*
+     * Update description.
+     */
+
+    const description =
+        section.querySelector(
+            "p"
+        );
+
+
+    if (description) {
+
+        description.textContent =
+            featuredMovie.description;
+
+    }
+
+
+    /*
+     * Update Watch Now link.
+     */
+
+    const button =
+        section.querySelector(
+            ".featured-button"
+        );
+
+
+    if (button) {
+
+        button.href =
+            "movie.html?id=" +
+            encodeURIComponent(
+                featuredMovie.id
+            );
+
+    }
+
+}
+
+
+/* =========================================
    MOVIE PAGE
 ========================================= */
 
@@ -1041,14 +1217,10 @@ function loadMoviePage() {
     }
 
 
-    /* CONTINUE WATCHING */
-
     addToContinueWatching(
         movie.id
     );
 
-
-    /* MOVIE ELEMENTS */
 
     const poster =
         document.getElementById(
@@ -1086,13 +1258,9 @@ function loadMoviePage() {
         );
 
 
-    /* TITLE */
-
     title.textContent =
         movie.title;
 
-
-    /* POSTER */
 
     if (poster) {
 
@@ -1104,8 +1272,6 @@ function loadMoviePage() {
 
     }
 
-
-    /* INFORMATION */
 
     if (info) {
 
@@ -1120,8 +1286,6 @@ function loadMoviePage() {
     }
 
 
-    /* DESCRIPTION */
-
     if (description) {
 
         description.textContent =
@@ -1130,46 +1294,19 @@ function loadMoviePage() {
     }
 
 
-    /* VIDEO */
-
     if (video) {
 
-        /*
-         * Stop anything that may already
-         * be playing.
-         */
-
         video.pause();
-
-
-        /*
-         * Remove old source.
-         */
 
         video.removeAttribute(
             "src"
         );
 
-
-        /*
-         * Set new movie video.
-         */
-
         video.src =
             movie.video;
 
-
-        /*
-         * Tell browser to load it.
-         */
-
         video.load();
 
-
-        /*
-         * Make sure only the selected
-         * movie plays.
-         */
 
         video.onplay =
             function() {
@@ -1180,10 +1317,6 @@ function loadMoviePage() {
 
             };
 
-
-        /*
-         * Helpful error message.
-         */
 
         video.onerror =
             function() {
@@ -1198,8 +1331,6 @@ function loadMoviePage() {
     }
 
 
-    /* DOWNLOAD */
-
     if (downloadButton) {
 
         downloadButton.href =
@@ -1212,8 +1343,6 @@ function loadMoviePage() {
 
     }
 
-
-    /* WATCHLIST */
 
     if (button) {
 
@@ -1244,7 +1373,7 @@ function loadWatchlistPage() {
 
     let container =
         document.getElementById(
-            "watchlistContainer"
+            "watchlistCont"
         );
 
 
@@ -1322,6 +1451,13 @@ function loadWatchlistPage() {
 document.addEventListener(
     "DOMContentLoaded",
     function() {
+
+        /*
+         * Featured movie
+         */
+
+        setupFeaturedMovie();
+
 
         /*
          * Homepage
